@@ -19,7 +19,7 @@ if [ -z $1 ]; then
 	echo "Not starting capture, start capturing with giving 'capture' parameter"
 else
 	echo "Starting capture on default interface. Change /data/moloch/etc/config.ini"
-	nohup ./run_capture.sh
+	nohup ./run_capture.sh &
 fi
 
 echo
@@ -29,4 +29,4 @@ echo " - docker exec container_id /data/moloch/bin/moloch-capture -r /data/pcap/
 echo
 echo "PLEASE ignore error about mising log file. It's standard moloch start script"
 echo "Starting viewer. Go with https to port 8005 of container."
-./run_viewer.sh
+nohup ./run_viewer.sh &
